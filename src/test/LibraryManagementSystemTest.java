@@ -19,6 +19,9 @@ public class LibraryManagementSystemTest {
         librarySystem.loanBook(book1, patron1);
 
         assertEquals(librarySystem.getCurrentState(), LibraryManagementSystem.State.IDLE);
+
+        librarySystem.returnBook(book1, patron1);
+        assertEquals(librarySystem.getCurrentState(), LibraryManagementSystem.State.IDLE);
     }
 
     @Test

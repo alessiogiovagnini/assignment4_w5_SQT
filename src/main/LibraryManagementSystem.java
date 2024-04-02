@@ -31,7 +31,7 @@ public class LibraryManagementSystem {
     }
 
     // Method to loan a book to a patron
-    public void loanBook(Book book, Patron patron) {
+    public void loanBook(Book book, Patron patron) {                                                                    //
         if (currentState == State.IDLE) {
             // Check if the book is available in the library
             if (libraryBooks.contains(book)) {
