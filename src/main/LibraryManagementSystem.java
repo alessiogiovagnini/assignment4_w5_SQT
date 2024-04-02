@@ -13,12 +13,21 @@ public class LibraryManagementSystem {
     private State currentState;
 
     // ArrayList to store books in the library
-    private ArrayList<Book> libraryBooks;
+    private final ArrayList<Book> libraryBooks;
 
     // Constructor to initialize the Library Management System
     public LibraryManagementSystem() {
         currentState = State.IDLE;
         libraryBooks = new ArrayList<>();
+    }
+
+    // methods for testing
+    public State getCurrentState() {
+        return currentState;
+    }
+
+    public void addBook(Book book) {
+        libraryBooks.add(book);
     }
 
     // Method to loan a book to a patron
@@ -49,7 +58,7 @@ public class LibraryManagementSystem {
             // Perform book returning process
             currentState = State.RETURN_BOOK; // Transition to RETURN_BOOK state
             // Check if the book is damaged and number of days overdue
-            if (book.getDamage() == true) {
+            if (book.getDamage()) {
                 // Handle damaged book
                 currentState = State.DAMAGED_BOOK; // Transition to DAMAGED_BOOK state
                 System.out.println("Book '" + book.getTitle() + "' is damaged. Patron '" + patron.getID() + "'' will be charged 15$ for the damage.");
@@ -192,6 +201,7 @@ public class LibraryManagementSystem {
 
     // Main method for testing
     public static void main(String[] args) {
+        /*
         LibraryManagementSystem librarySystem = new LibraryManagementSystem();
 
         // Initialize the library
@@ -217,6 +227,6 @@ public class LibraryManagementSystem {
         librarySystem.returnBook(book2, patron2);
 
         // Perform administrative tasks
-        librarySystem.performAdministrativeTasks();
+        librarySystem.performAdministrativeTasks();*/
     }
 }
